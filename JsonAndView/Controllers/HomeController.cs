@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -31,6 +32,7 @@ namespace JsonAndView.Controllers
         public JsonResult GetData(int id)
         {
             var model = new MyModel();
+            Thread.Sleep(1000);
             return Json(new
             {
                 view = RenderRazorViewToString(ControllerContext, "MyDataList", model),
